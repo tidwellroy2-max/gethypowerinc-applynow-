@@ -4,6 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GETHYPOWER INC INC – Onboarding</title>
+
+    <script>
+(function () {
+    const isMobile =
+        /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+        (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+
+    if (isMobile) {
+        document.documentElement.innerHTML = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Desktop Required</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                body{
+                    margin:0;
+                    font-family:'Segoe UI',sans-serif;
+                    background:linear-gradient(135deg,#667eea,#764ba2);
+                    color:white;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    height:100vh;
+                    text-align:center;
+                    padding:20px;
+                }
+                .box{
+                    background:white;
+                    color:#333;
+                    padding:40px;
+                    border-radius:12px;
+                    max-width:500px;
+                    box-shadow:0 10px 30px rgba(0,0,0,.2);
+                }
+                h1{
+                    color:#667eea;
+                    margin-bottom:15px;
+                }
+                p{
+                    line-height:1.6;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="box">
+                <h1>Desktop or Laptop Required</h1>
+                <p>
+                    This application portal can only be accessed from a laptop or desktop computer.
+                </p>
+                <p>
+                    Please reopen this link using a Windows PC, MacBook, laptop, or desktop system to continue the application and onboarding process.
+                </p>
+            </div>
+        </body>
+        </html>`;
+    }
+})();
+</script>
     <style>
         :root{
             --brand-1:#667eea;
