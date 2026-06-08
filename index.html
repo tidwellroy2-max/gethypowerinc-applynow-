@@ -4,67 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GETHYPOWER INC INC – Onboarding</title>
-    <style>
-html {
-    display: none;
-}
-</style>
-
-<script>
+  <script>
 (function () {
-    const isMobile =
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     if (isMobile) {
-        document.open();
-        document.write(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Desktop Required</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <style>
-                *{margin:0;padding:0;box-sizing:border-box}
-                body{
-                    font-family:'Segoe UI',sans-serif;
-                    background:linear-gradient(135deg,#667eea,#764ba2);
-                    height:100vh;
-                    display:flex;
-                    justify-content:center;
-                    align-items:center;
-                    padding:20px;
-                }
-                .box{
-                    background:#fff;
-                    max-width:500px;
-                    padding:40px;
-                    border-radius:12px;
-                    text-align:center;
-                    box-shadow:0 10px 30px rgba(0,0,0,.2);
-                }
-                h1{
-                    color:#667eea;
-                    margin-bottom:15px;
-                }
-                p{
-                    color:#555;
-                    line-height:1.6;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="box">
-                <h1>Desktop or Laptop Required</h1>
-                <p>This application portal is only available on a laptop or desktop computer.</p>
-                <p>Please reopen this link on a Windows PC, MacBook, laptop, or desktop system to continue.</p>
+        document.body.innerHTML = `
+        <div style="
+            font-family:Segoe UI,sans-serif;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:20px;
+        ">
+            <div style="
+                background:white;
+                color:#333;
+                padding:40px;
+                border-radius:12px;
+                max-width:500px;
+                text-align:center;
+            ">
+                <h1 style="color:#667eea;">Desktop or Laptop Required</h1>
+                <p>This application portal can only be accessed from a laptop or desktop computer.</p>
+                <p>Please reopen this link on a Windows PC, MacBook, laptop, or desktop system.</p>
             </div>
-        </body>
-        </html>
-        `);
-        document.close();
-    } else {
-        document.documentElement.style.display = "block";
+        </div>
+        `;
     }
 })();
 </script>
