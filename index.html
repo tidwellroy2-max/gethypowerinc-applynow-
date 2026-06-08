@@ -4,39 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GETHYPOWER INC INC – Onboarding</title>
+    <style>
+html {
+    display: none;
+}
+</style>
 
-    <script>
+<script>
 (function () {
     const isMobile =
-        /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-        (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
     if (isMobile) {
-        document.documentElement.innerHTML = `
+        document.open();
+        document.write(`
         <!DOCTYPE html>
         <html>
         <head>
             <title>Desktop Required</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>
+                *{margin:0;padding:0;box-sizing:border-box}
                 body{
-                    margin:0;
                     font-family:'Segoe UI',sans-serif;
                     background:linear-gradient(135deg,#667eea,#764ba2);
-                    color:white;
+                    height:100vh;
                     display:flex;
                     justify-content:center;
                     align-items:center;
-                    height:100vh;
-                    text-align:center;
                     padding:20px;
                 }
                 .box{
-                    background:white;
-                    color:#333;
+                    background:#fff;
+                    max-width:500px;
                     padding:40px;
                     border-radius:12px;
-                    max-width:500px;
+                    text-align:center;
                     box-shadow:0 10px 30px rgba(0,0,0,.2);
                 }
                 h1{
@@ -44,6 +48,7 @@
                     margin-bottom:15px;
                 }
                 p{
+                    color:#555;
                     line-height:1.6;
                 }
             </style>
@@ -51,18 +56,19 @@
         <body>
             <div class="box">
                 <h1>Desktop or Laptop Required</h1>
-                <p>
-                    This application portal can only be accessed from a laptop or desktop computer.
-                </p>
-                <p>
-                    Please reopen this link using a Windows PC, MacBook, laptop, or desktop system to continue the application and onboarding process.
-                </p>
+                <p>This application portal is only available on a laptop or desktop computer.</p>
+                <p>Please reopen this link on a Windows PC, MacBook, laptop, or desktop system to continue.</p>
             </div>
         </body>
-        </html>`;
+        </html>
+        `);
+        document.close();
+    } else {
+        document.documentElement.style.display = "block";
     }
 })();
 </script>
+   
     <style>
         :root{
             --brand-1:#667eea;
